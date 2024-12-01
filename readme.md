@@ -34,10 +34,12 @@ To use ParseBlade in your Laravel project:
 3. Run the command in the terminal to start extracting translations:
    ```bash
    php artisan app:parse
-   🛠️ How It Works
-   Step 1: Scanning Files
-   The command scans all Blade templates in the resources/views/ directory.
    ```
+
+## 🛠️ How It Works
+
+Step 1: Scanning Files
+The command scans all Blade templates in the resources/views/ directory.
 
 Step 2: Extracting Translations
 It parses Blade files, extracting static text while skipping:
