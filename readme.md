@@ -39,17 +39,19 @@ To use ParseBlade in your Laravel project:
 ## 🛠️ How It Works
 
 - Step 1: Scanning Files
-The command scans all Blade templates in the resources/views/ directory.
+  The command scans all Blade templates in the resources/views/ directory.
 
 - Step 2: Extracting Translations
-It parses Blade files, extracting static text while skipping:
+  It parses Blade files, extracting static text while skipping:
 
 Content inside <script>, <style>, and <meta> tags.
 Blade directives and dynamic content.
 Step 3: Saving Changes
 Updates Blade templates by replacing static text with translation directives.
-Writes extracted strings into organized translation files in resources/lang/en/.
+Writes extracted strings into organized translation files in `resources/lang/en/`.
+
 ## 🔄 Detailed Process
+
 - Text Extraction and Replacement
 - processBladeContent
 
@@ -69,23 +71,21 @@ Generating Translation Keys
 generateKey
 Creates unique keys based on the text content.
 Example: "Welcome to my site" → welcome_to_my_site.
-## 📝 Example
-Before
-html
-Copy code
 
+## 📝 Example
+
+```bash
 <div>Welcome to our site!</div>
 <meta name="author" content="Your Name">
-## After
-html
-Copy code
+
 <div>{!! __('file.div.welcome_to_our_site') !!}</div>
 <meta name="author" content="{{ __('file.meta_content.author') }}">
+```
+
 Generated Language File
 resources/lang/en/file.php:
 
-php
-Copy code
+```bash
 return [
 'div' => [
 'welcome_to_our_site' => 'Welcome to our site!',
@@ -94,7 +94,10 @@ return [
 'author' => 'Your Name',
 ],
 ];
+```
+
 ## ✅ What It Covers
+
 Does:
 Extract static text for localization.
 Handle UTF-8 content (e.g., Arabic, Chinese).
@@ -102,7 +105,9 @@ Replace content inside text nodes and attributes.
 Doesn’t:
 Modify <script>, <style>, or <meta> tags.
 Process content already wrapped in translation directives.
+
 ## 🏆 Practical Benefits
+
 Automates Localization
 Streamlines the localization process by automating string extraction and organizing translations into structured files.
 
@@ -110,6 +115,7 @@ Clean Code
 Keeps your Blade templates clean and readable by replacing static text with standardized translation directives.
 
 ## ⚡ Usage
+
 Run the command to process all Blade files:
 
 bash
@@ -119,6 +125,8 @@ This will:
 
 Extract all translatable strings from Blade templates.
 Replace static text with translation directives.
-Generate or update language files in the resources/lang/ directory.
-📜 License
+Generate or update language files in the `resources/lang/` directory.
+
+## 📜 License
+
 ParseBlade is open-source and licensed under the MIT License. You are free to use and modify it to suit your project needs.
