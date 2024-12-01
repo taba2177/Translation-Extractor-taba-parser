@@ -7,16 +7,19 @@ ParseBlade is a powerful Laravel console command that streamlines the localizati
 ## ✨ Features
 
 ### 🔍 Automatic Translation Extraction
+
 - Scans Blade templates in the `resources/views/` directory.
 - Identifies and extracts translatable content.
 - Skips non-translatable tags like `<script>`, `<style>`, and `<meta>`.
 
 ### 🛠️ Translation Directive Replacement
+
 - Replaces static text with Laravel’s translation directives:
   - `{!! __('file.tag.key') !!}` for inline content.
   - `{{ __('file.tag_attribute.key') }}` for attributes like `title` or `content`.
 
 ### 📁 Language File Management
+
 - Creates or updates translation files in `resources/lang/en/`.
 - Organizes translatable content by HTML tag for better readability.
 
@@ -31,9 +34,10 @@ To use ParseBlade in your Laravel project:
 3. Run the command in the terminal to start extracting translations:
    ```bash
    php artisan app:parse
-🛠️ How It Works
-Step 1: Scanning Files
-The command scans all Blade templates in the resources/views/ directory.
+   🛠️ How It Works
+   Step 1: Scanning Files
+   The command scans all Blade templates in the resources/views/ directory.
+   ```
 
 Step 2: Extracting Translations
 It parses Blade files, extracting static text while skipping:
@@ -52,13 +56,13 @@ Skips unwanted tags and extracts translatable text.
 extractTranslations
 
 Uses DOMDocument and DOMXPath to identify text nodes.
-Replaces static text with directives like {!! __('file.tag.key') !!}.
+Replaces static text with directives like {!! **('file.tag.key') !!}.
 Handling Attributes
 processAttributeNode
 Handles attributes (e.g., title, content) by replacing their values with directives:
 php
 Copy code
-{{ __('file.tag_attribute.key') }}
+{{ **('file.tag_attribute.key') }}
 Generating Translation Keys
 generateKey
 Creates unique keys based on the text content.
@@ -67,6 +71,7 @@ Example: "Welcome to my site" → welcome_to_my_site.
 Before
 html
 Copy code
+
 <div>Welcome to our site!</div>
 <meta name="author" content="Your Name">
 After
@@ -80,12 +85,12 @@ resources/lang/en/file.php:
 php
 Copy code
 return [
-    'div' => [
-        'welcome_to_our_site' => 'Welcome to our site!',
-    ],
-    'meta_content' => [
-        'author' => 'Your Name',
-    ],
+'div' => [
+'welcome_to_our_site' => 'Welcome to our site!',
+],
+'meta_content' => [
+'author' => 'Your Name',
+],
 ];
 ✅ What It Covers
 Does:
